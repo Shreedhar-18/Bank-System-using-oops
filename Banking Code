@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+
+class Bank {
+private:
+    int acc_no;
+    int balance;
+
+public:
+    void inputDetails();
+    void showAccountSummary() const;
+    void showMenu();
+    void depositAmount();
+    void withdrawAmount();
+    void handleUserChoice();
+};
+
+// Method to input initial details
+void Bank::inputDetails() {
+    cout << "======================================" << endl;
+    cout << "         Welcome to Shree's Bank         " << endl;
+    cout << "======================================" << endl;
+    cout << "Enter your Account Number: ";
+    cin >> acc_no;
+    cout << "Enter Initial Balance: ₹";
+    cin >> balance;
+    cout << "🎉 Account opend Successfully!" << endl;
+    cout << "--------------------------------------" << endl;
+}
+
+// Show current account summary
+void Bank::showAccountSummary() const {
+    cout << "\n📄 Account Summary:" << endl;
+    cout << "Account Number: " << acc_no << endl;
+    cout << "Current Balance: ₹" << balance << endl;
+}
+
+// Show user menu
+void Bank::showMenu() {
+    cout << "\n*************** MENU *****************" << endl;
+    cout << "1. Deposit Amount" << endl;
+    cout << "2. Withdraw Amount" << endl;
+    cout << "3. Show Balance" << endl;
+    cout << "4. Exit" << endl;
+    cout << "**************************************" << endl;
+}
+
+// Deposit method
+void Bank::depositAmount() {
+    int deposit;
+    cout << "Enter amount to deposit: ₹";
+    cin >> deposit;
+    balance += deposit;
+    cout << "✅ Amount Deposited Successfully!" << endl;
+    cout << "💰 Updated Balance: ₹" << balance << endl;
+}
+
+// Withdraw method
+void Bank::withdrawAmount() {
+    int withdraw;
+    cout << "Enter amount to withdraw: ₹";
+    cin >> withdraw;
+    if (withdraw <= balance) {
+        balance -= withdraw;
+        cout << "✅ Withdrawal Successful!" << endl;
+        cout << "💰 Remaining Balance: ₹" << balance << endl;
+    } else {
+        cout << "❌ Insufficient Balance!" << endl;
+    }
+}
+
+// Main menu handler
+void Bank::handleUserChoice() {
+    int choice;
+    do {
+        showMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                depositAmount();
+                break;
+            case 2:
+                withdrawAmount();
+                break;
+            case 3:
+                showAccountSummary();
+                break;
+            case 4:
+                cout << "\n🙏 Thank you for banking with us!" << endl;
+                break;
+            default:
+                cout << "⚠️ Invalid Choice! Please try again." << endl;
+        }
+        cout << "\n--------------------------------------" << endl;
+    } while (choice != 4);
+}
+
+int main() {
+    Bank user1;
+    user1.inputDetails();
+    user1.handleUserChoice();
+    return 0;
+}

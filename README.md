@@ -22,5 +22,14 @@ Welcome to **Shree's Bank** – a simple, interactive, and menu-driven banking s
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## 🧾 Scree Shots
+
+![image](https://github.com/user-attachments/assets/dce19e34-b7ff-4add-8cd1-66506e076ad9)
+
+![image](https://github.com/user-attachments/assets/a97dba9c-bf5a-4941-9e4c-2370e8099ef6)
+
+
 
